@@ -15,22 +15,22 @@ const EducationSection = () => {
 
   const educationData = [
     {
-      degree: "Secondary School Certificate (SSC)",
-      school: "Natore Textile Institute",
+      degree: "Foundation in Information Tech",
+      school: "Universiti Selangor",
       mascot: "📘",
-      year: "2019-2021",
-      achievements: ["GPA: 4.89", "Subject: Science"],
-      skills: ["Mathematics", "Physics", "Chemistry", "Biology"],
+      year: "2018-2019",
+      achievements: ["GPA: 3.33"],
+      skills: ["Mathematics", "DSA", "Designing", "Documentations"],
       description:
         "Focused on core science subjects with emphasis on practical laboratory work and scientific research methodologies.",
     },
     {
-      degree: "Higher Secondary Certificate (HSC)",
-      school: "Dottopara Model Degree College",
+      degree: "Bachelor in Software Engineering",
+      school: "Universiti Selangor",
       mascot: "📗",
-      year: "2021-2023",
-      achievements: ["GPA: 4.25", "Subject: Arts"],
-      skills: ["Literature", "Social Studies", "Economics", "History"],
+      year: "2019-2022",
+      achievements: ["GPA: 3.90", "Dean List"],
+      skills: ["Software Maintenance", "E - Commarce", "Comp Network", "DSA"],
       description:
         "Developed strong analytical and critical thinking skills through comprehensive study of humanities and social sciences.",
     },
@@ -59,13 +59,13 @@ const EducationSection = () => {
   };
 
   return (
-    <section className="min-h-screen relative overflow-hidden py-40 bg-[#04081A]">
-      {/* Grid Background */}
-      <div className="absolute inset-0 z-0">
+    <section className="min-h-screen relative overflow-hidden py-40">
+      {/* Remove the Grid Background div completely */}
+      {/* <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-grid-white/[0.05] bg-[length:50px_50px]" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#04081A] via-transparent to-[#04081A]" />
         <div className="absolute inset-0 border border-white/[0.05] grid grid-cols-2 md:grid-cols-4" />
-      </div>
+      </div> */}
 
       <div className="max-w-6xl mx-auto px-4 relative z-10">
         <motion.div
@@ -87,7 +87,7 @@ const EducationSection = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto"
         >
           {educationData.map((edu, index) => (
             <motion.div

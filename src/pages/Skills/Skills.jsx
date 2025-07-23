@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import IconCloudDemo from "@/components/globe";
@@ -10,6 +10,7 @@ import {
   FaDocker,
   FaGitAlt,
   FaLinux,
+  FaPhp,
   FaFigma,
   FaAws,
 } from "react-icons/fa";
@@ -21,9 +22,15 @@ import {
   SiMongodb,
   SiGraphql,
   SiJest,
+  SiXcode,
+  SiAdobephotoshop,
+  SiWondersharefilmora,
   SiWebpack,
   SiRedux,
   SiFirebase,
+  SiCanva,
+  SiAndroidstudio,
+  SiSupabase,
   SiVercel,
   SiVite,
 } from "react-icons/si";
@@ -92,6 +99,10 @@ const SkillsSection = () => {
           name: "CSS3",
           icon: <BsFileEarmarkCode className="w-4 h-4 text-[#1572B6]" />,
         },
+        {
+          name: "Android Studio",
+          icon: <SiAndroidstudio className="w-4 h-4 text-[#3DDC84]" />,
+        },
       ],
     },
     {
@@ -102,10 +113,6 @@ const SkillsSection = () => {
         {
           name: "Node.js",
           icon: <FaNodeJs className="w-4 h-4 text-[#339933]" />,
-        },
-        {
-          name: "Python",
-          icon: <FaPython className="w-4 h-4 text-[#3776AB]" />,
         },
         {
           name: "PostgreSQL",
@@ -120,8 +127,12 @@ const SkillsSection = () => {
           icon: <BsGrid1X2 className="w-4 h-4 text-[#FF6C37]" />,
         },
         {
-          name: "GraphQL",
-          icon: <SiGraphql className="w-4 h-4 text-[#E10098]" />,
+          name: "PHP Laravel",
+          icon: <FaPhp className="w-4 h-4 text-[#777BB4]" />,
+        },
+        {
+          name: "Supabase",
+          icon: <SiSupabase className="w-4 h-4 text-[#3ECF8E]" />,
         },
       ],
     },
@@ -151,15 +162,6 @@ const SkillsSection = () => {
       color: "text-orange-400",
       skills: [
         { name: "AWS", icon: <FaAws className="w-4 h-4 text-[#FF9900]" /> },
-        {
-          name: "Docker",
-          icon: <FaDocker className="w-4 h-4 text-[#2496ED]" />,
-        },
-        { name: "CI/CD", icon: <FcWorkflow className="w-4 h-4" /> },
-        {
-          name: "Kubernetes",
-          icon: <BsGrid1X2 className="w-4 h-4 text-[#326CE5]" />,
-        },
         { name: "Git", icon: <FaGitAlt className="w-4 h-4 text-[#F05032]" /> },
         { name: "Linux", icon: <FaLinux className="w-4 h-4 text-[#FCC624]" /> },
       ],
@@ -173,11 +175,6 @@ const SkillsSection = () => {
           name: "VS Code",
           icon: <TbBrandVscode className="w-4 h-4 text-[#007ACC]" />,
         },
-        { name: "Jest", icon: <SiJest className="w-4 h-4 text-[#C21325]" /> },
-        {
-          name: "Webpack",
-          icon: <SiWebpack className="w-4 h-4 text-[#8DD6F9]" />,
-        },
         { name: "Redux", icon: <SiRedux className="w-4 h-4 text-[#764ABC]" /> },
         {
           name: "Firebase",
@@ -185,6 +182,14 @@ const SkillsSection = () => {
         },
         { name: "Vercel", icon: <SiVercel className="w-4 h-4 text-white" /> },
         { name: "Vite", icon: <SiVite className="w-4 h-4 text-[#646CFF]" /> },
+        {
+          name: "Supabase",
+          icon: <SiSupabase className="w-4 h-4 text-[#3ECF8E]" />,
+        },
+        {
+          name: "Xcode",
+          icon: <SiXcode className="w-4 h-4 text-[#007AFF]" />,
+        },
       ],
     },
     {
@@ -197,28 +202,25 @@ const SkillsSection = () => {
           icon: <MdAnimation className="w-4 h-4 text-[#FF4081]" />,
         },
         {
-          name: "SVG Animation",
-          icon: <MdAnimation className="w-4 h-4 text-[#00C853]" />,
+          name: "Canva",
+          icon: <SiCanva className="w-4 h-4 text-[#00C4CC]" />,
         },
         {
-          name: "3D Modeling",
-          icon: <Cpu className="w-4 h-4 text-[#7C4DFF]" />,
+          name: "Adobe Photoshop",
+          icon: <SiAdobephotoshop className="w-4 h-4 text-[#FF9933]" />,
         },
         {
-          name: "Motion Graphics",
-          icon: <MdAnimation className="w-4 h-4 text-[#FF6D00]" />,
+          name: "Wondershare Filmora",
+          icon: <SiWondersharefilmora className="w-4 h-4 text-[#FF6600]" />,
         },
       ],
     },
   ];
 
   return (
-    <main className="pt-15 lg:pt-0 text-white min-h-screen bg-[#04081A] relative">
-      {/* Grid Background */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
-
-      <section className="container mx-auto px-4 py-11 relative z-10">
-        <div className="flex justify-center items-center ">
+    <main className="pt-15 lg:pt-0 text-white min-h-screen">
+      <section className="container mx-auto px-4 py-11">
+        <div className="flex justify-center items-center">
           <IconCloudDemo />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -244,19 +246,6 @@ const SkillsSection = () => {
         }
         .animate-shimmer {
           animation: shimmer 2s infinite;
-        }
-        .bg-grid-pattern {
-          background-image: linear-gradient(
-              to right,
-              rgba(100, 100, 255, 0.1) 1px,
-              transparent 1px
-            ),
-            linear-gradient(
-              to bottom,
-              rgba(100, 100, 255, 0.1) 1px,
-              transparent 1px
-            );
-          background-size: 30px 30px;
         }
       `}</style>
     </main>

@@ -2,44 +2,74 @@ import { ReactLenis } from "lenis/react";
 import { useTransform, motion, useScroll } from "framer-motion";
 import { useRef, useEffect } from "react";
 import PropTypes from "prop-types";
+import imrewardImage from "../../assets/images/imreward.png";
+import smartocImage from "../../assets/images/smartoc.png";
+import topkashImage from "../../assets/images/topkash.png";
+import clea from "../../assets/images/clea.png";
 
 const projects = [
   {
-    title: "Olova! A Lightweight JavaScript Library",
+    title: "IMREWARD",
     description:
-      "A lightweight JavaScript library for creating beautiful, responsive UI components.",
+      "imreward provides marketing campaign tools that help e-commerce businesses engage their customers with interactive promotions such as Spin Wheel, Scratch and Win, and others. You can integrate our service with your e-commerce platform to run these campaigns and offer rewards to your customers, such as discounts, coupons, or free products.",
     src: "rock.jpg",
-    link: "https://i.postimg.cc/DwgWTfP0/Annotation-2025-03-19-113338.png",
+    link: imrewardImage,
     color: "#5196fd",
-    githubLink: "https://github.com/olovajs/olova",
-    liveLink: "https://olova.js.org/",
+    // githubLink: "https://github.com/olovajs/olova",
+    // liveLink: "https://olova.js.org/",
   },
   {
-    title: "A sleek portfolio built with React and Tailwind CSS ",
+    title: "Smart Food Ordering Cafe - Freelance ",
     description:
-      "A sleek portfolio built with React and Tailwind CSS to showcase your skills, projects, and experience in a modern design.",
+      "SmartOC is a campus-focused food ordering app designed to simplify and speed up the ordering process for university students and staff. Built to support busy campus lifestyles, SmartOC allows users to browse menus, place orders, and receive real-time updates from food vendors around the university , all from their mobile devices.",
     src: "tree.jpg",
-    link: "https://i.postimg.cc/J75CKyrs/Annotation-2025-04-01-203959.png",
+    link: smartocImage,
     color: "#8f89ff",
-    githubLink: "https://github.com/seraprogrammer/portfolio",
-    liveLink: "https://codervai.vercel.app",
   },
   {
-    title: "🚀 CodeWhisperer",
+    title: "MICRO LOAN",
     description:
       "🚀 CodeWhisperer A powerful online code editor built with React and Tailwind CSS. Featuring real-time code execution, syntax highlighting, multi-language support, and a sleek UI. Start coding instantly! 💻✨",
     src: "water.jpg",
-    link: "https://i.postimg.cc/J4jPVFY0/Annotation-2025-04-01-204723.png",
+    link: "https://placehold.co/600x400/0066cc/ffffff?text=MICRO+LOAN+FINANCIAL+SERVICES",
     color: "#fff",
-    githubLink: "https://github.com/seraprogrammer/codewhisperer",
-    liveLink: "https://codewhisperer.vercel.app/",
   },
   {
-    title: "CodeKori 🔥",
+    title: "TOPKASH",
     description:
-      "CodeKori is a powerful online code editor built with React and Tailwind CSS. Featuring real-time code execution, syntax highlighting, multi-language support, and a sleek UI. Start coding instantly! 💻✨",
+      "TOPKASH is Southeast Asia's leading mobile app for currency exchange and international money transfers. It offers competitive exchange rates, comprehensive fund management and fast transfer methods. The app is safe, convenient, and easy to use, making it a great way to store currencies and manage your finances internationally.",
     src: "house.jpg",
-    link: "https://i.postimg.cc/cHQr4fpR/Annotation-2025-04-01-205350.png",
+    link: topkashImage,
+    color: "#ed649e",
+    githubLink: "https://github.com/seraprogrammer/CodeKori",
+    liveLink: "https://codekori.js.org",
+  },
+  {
+    title: "GIFTPACE",
+    description:
+      "GIFTPACE is a dynamic coupon generation and distribution platform designed to help businesses engage users through personalized and time-sensitive rewards. Whether it's for promotions, events, or customer loyalty, GIFTPACE enables businesses to generate unique coupon codes in bulk, track usage, and deliver them directly to end users with ease.",
+    src: "house.jpg",
+    link: "https://placehold.co/600x400/4A9782/ffffff?text=GIFTPACE+APP",
+    color: "#ed649e",
+    githubLink: "https://github.com/seraprogrammer/CodeKori",
+    liveLink: "https://codekori.js.org",
+  },
+  {
+    title: "CLEADOC",
+    description:
+      "CLEADOC is the largest POCT platform in Malaysia, health tech aggregator and provider, that enables convenient hybrid healthcare solutions for the people.",
+    src: "house.jpg",
+    link: clea,
+    color: "#ed649e",
+    githubLink: "https://github.com/seraprogrammer/CodeKori",
+    liveLink: "https://codekori.js.org",
+  },
+  {
+    title: "CEMRI",
+    description:
+      "CEMRI is an advanced clinic management system built as an extended version of CLEA, specifically designed to streamline operations within clinical environments. From patient registration and appointment scheduling to medical record handling and prescription management, CEMRI offers a complete digital solution for modern clinics. Developed with healthcare workflows in mind, CEMRI improves efficiency, reduces administrative workload, and ensures accurate patient data tracking.",
+    src: "house.jpg",
+    link: "https://placehold.co/600x400/932F67/ffffff?text=CEMRI",
     color: "#ed649e",
     githubLink: "https://github.com/seraprogrammer/CodeKori",
     liveLink: "https://codekori.js.org",
@@ -99,10 +129,23 @@ export default function Projects() {
 
   return (
     <ReactLenis root>
-      <main className="bg-black" ref={container}>
-        <section className="text-white w-full bg-slate-950">
+      <main ref={container}>
+        {" "}
+        {/* Remove bg-black */}
+        <section className="text-white w-full">
+          {" "}
+          {/* Remove bg-slate-950 */}
           {projects.map((project, i) => {
-            const targetScale = 1 - (projects.length - i) * 0.05;
+            // Adjust the scaling factor to be more gradual
+            // This ensures even the last projects maintain a reasonable size
+            const targetScale =
+              1 - Math.min(0.45, (projects.length - i) * 0.03);
+
+            // Adjust the animation range to be more distributed
+            // This prevents all animations from ending at the same point
+            const startRange = i * 0.15; // More gradual start points
+            const endRange = Math.min(1, startRange + 0.5); // Distributed end points
+
             return (
               <Card
                 key={`p_${i}`}
@@ -112,7 +155,7 @@ export default function Projects() {
                 color={project.color}
                 description={project.description}
                 progress={scrollYProgress}
-                range={[i * 0.25, 1]}
+                range={[startRange, endRange]}
                 targetScale={targetScale}
                 githubLink={project.githubLink}
                 liveLink={project.liveLink}
@@ -148,7 +191,8 @@ function Card({
       <motion.div
         style={{
           scale,
-          top: `calc(-5vh + ${i * 25}px)`,
+          // Adjust the top positioning to be more gradual for more projects
+          top: `calc(-5vh + ${i * Math.max(5, 25 - projects.length)}px)`,
           transform: `scale(var(--project-scale, 1))`,
           marginTop: "var(--project-margin, 0)",
         }}
@@ -207,70 +251,6 @@ function Card({
 
             <div className="mt-4 md:mt-auto pt-4">
               <div className="w-full h-[1px] bg-gray-800 mb-4 md:mb-6" />
-
-              <div className="flex items-center gap-4">
-                {/* GitHub Link */}
-                <motion.a
-                  href={githubLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2"
-                  whileHover={{ y: -3 }}
-                  transition={{ type: "spring", stiffness: 400 }}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="22"
-                    height="22"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke={color}
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                  </svg>
-                  <span
-                    className="text-xs md:text-sm font-medium"
-                    style={{ color }}
-                  >
-                    Code
-                  </span>
-                </motion.a>
-
-                {/* Live Link */}
-                <motion.a
-                  href={liveLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2"
-                  whileHover={{ y: -3 }}
-                  transition={{ type: "spring", stiffness: 400 }}
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="22"
-                    height="22"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke={color}
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="2" y1="12" x2="22" y2="12"></line>
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                  </svg>
-                  <span
-                    className="text-xs md:text-sm font-medium"
-                    style={{ color }}
-                  >
-                    Live
-                  </span>
-                </motion.a>
-              </div>
             </div>
           </div>
         </div>

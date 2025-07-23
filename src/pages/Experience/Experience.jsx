@@ -55,38 +55,36 @@ const ExperienceSection = () => {
   const experiences = [
     {
       icon: Network,
-      title: "WordPress Developer",
-      company: "Fiverr",
-      period: "2019 - 2020",
-      description:
-        "Worked on developing and customizing WordPress websites for clients globally.",
-    },
-    {
-      icon: Layers,
-      title: "Junior Frontend Developer",
-      company: "Sera Programmer",
-      period: "2021 - 2023",
+      title: "Internship",
+      company: "Barcove",
+      period: "Aug 2022 - Dec 2022",
       description:
         "Assisted in building and optimizing user interfaces with a focus on responsive and interactive designs.",
     },
     {
-      icon: Code2,
-      title: "JavaScript Developer",
-      company: "OlovJS (Sera Programmer)",
-      period: "2023 - Present",
+      icon: Layers,
+      title: "Junior Web Developer",
+      company: "Barcove",
+      period: "Dec 2022 - Present",
       description:
-        "Contributed to developing JavaScript libraries and enhancing framework functionalities.",
+        "Contributed to full-stack development by building responsive frontends (React/React Native), developing backend logic and APIs using Laravel, and conducting manual testing to ensure quality and performance.",
+    },
+    {
+      icon: Code2,
+      title: "Freelance Programmer",
+      company: "DrkryptTech , ByteWisp",
+      period: "May 2025 - Present",
+      description:
+        "exploring and adopting new technologies to build scalable solutions tailored to client needs. Involved in end-to-end development",
     },
   ];
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-b relative overflow-hidden pt-32 pb-20">
-        {/* Animated gradient background */}
-        <div className="absolute inset-0 bg-[#04081A]" />
-
-        {/* Grid background */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(50,50,70,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(50,50,70,0.15)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_70%,transparent_100%)]" />
+      <div className="min-h-screen relative overflow-hidden pt-32 pb-20">
+        {/* Remove these background divs */}
+        {/* <div className="absolute inset-0 bg-[#04081A]" /> */}
+        {/* <div className="absolute inset-0 bg-[linear-gradient(rgba(50,50,70,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(50,50,70,0.15)_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_70%,transparent_100%)]" /> */}
 
         {/* Animated particles */}
         <div className="absolute inset-0">
